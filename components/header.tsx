@@ -6,18 +6,18 @@ import { Button } from '@/components/ui/button'
 
 export default function Header() {
   return (
-    <header className='py-4'>
-      <nav className='container flex items-center justify-between'>
-        <ul className='flex items-center gap-10 text-sm font-medium'>
-          <li className='font-serif text-lg font-semibold'>
-            <Link href='/'>NeoChat</Link>
-          </li>
-          <li>
-            <Link href='/chat'>Chat</Link>
-          </li>
-        </ul>
+    <header className='py-4 border-b'>
+      <nav className='container flex flex-wrap items-center justify-between gap-4'>
+        {/* Brand and Navigation Links */}
+        <div className='flex flex-wrap items-center gap-4 sm:gap-10 text-sm font-medium'>
+          <Link href='/' className='font-serif text-lg font-semibold'>
+            NeoChat
+          </Link>
+          <Link href='/chat'>Chat</Link>
+        </div>
 
-        <div className='flex items-center justify-between gap-6'>
+        {/* Right Side Controls */}
+        <div className='flex items-center gap-4 sm:gap-6'>
           <ThemeToggle />
 
           <SignedOut>
@@ -25,6 +25,7 @@ export default function Header() {
               <Button size='sm'>Sign in</Button>
             </SignInButton>
           </SignedOut>
+
           <SignedIn>
             <UserButton />
           </SignedIn>
