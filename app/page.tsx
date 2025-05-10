@@ -1,45 +1,36 @@
 import Link from 'next/link'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
-export default function Home() {
+import { ThemeToggle } from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
+
+export default function Header() {
   return (
-    <section className='py-2'>
-      <div className='container'>
-        <div className='mx-auto max-w-2xl py-32'>
-          <div className='hidden sm:mb-8 sm:flex sm:justify-center'>
-            <div className='relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
-              Introducing NeoCha 2.0 with new features.{' '}
-              <Link href='/' className='font-semibold text-emerald-600'>
-                <span aria-hidden='true' className='absolute inset-0' />
-                See what's new <span aria-hidden='true'>&rarr;</span>
-              </Link>
-            </div>
-          </div>
-          <div className='text-center'>
-            <h1 className='text-4xl font-bold tracking-tight sm:text-6xl'>
-              NeoCha - Simple, Secure Chat
-            </h1>
-            <p className='mt-6 text-lg leading-8 text-muted-foreground'>
-              Experience lightning-fast messaging with end-to-end encryption. 
-              NeoCha makes connecting with friends and colleagues effortless 
-              with its clean interface and reliable performance.
-            </p>
-            <div className='mt-10 flex items-center justify-center gap-x-6'>
-              <Link
-                href='/chat'
-                className='rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600'
-              >
-                Start Chatting
-              </Link>
-              <Link 
-                href='/features' 
-                className='text-sm font-semibold leading-6'
-              >
-                See Features <span aria-hidden='true'>→</span>
-              </Link>
-            </div>
-          </div>
+    <header className='py-4 border-b'>
+      <nav className='container flex flex-wrap items-center justify-between gap-4'>
+        {/* Brand and Navigation Links */}
+        <div className='flex flex-wrap items-center gap-4 sm:gap-10 text-sm font-medium'>
+          <Link href='/' className='font-serif text-lg font-semibold'>
+            NeoChat
+          </Link>
+          <Link href='/chat'>Chat</Link>
         </div>
-      </div>
-    </section>
+
+        {/* Right Side Controls */}
+        <div className='flex items-center gap-4 sm:gap-6'>
+          <ThemeToggle />
+
+          <SignedOut>
+            <SignInButton>
+              <Button size='sm'>Sign in</Button>
+            </SignInButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
+      </nav>
+    </header>
   )
 }
