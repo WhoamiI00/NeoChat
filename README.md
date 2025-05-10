@@ -89,25 +89,6 @@ export default function Loading() {
 }
 \`\`\`
 
----
-
-## 📂 Project Structure
-
-\`\`\`
-neocha/
-├── app/
-│   ├── (auth)/             # Auth routes
-│   ├── chat/               # Chat interface
-│   ├── layout.tsx          # Root layout
-│   ├── loading.tsx         # Global loading UI
-│   └── page.tsx            # Landing page
-├── components/             # Reusable components
-├── lib/                    # Utilities
-├── public/                 # Static assets
-└── styles/                 # Global styles
-\`\`\`
-
----
 
 ## 🌈 Theming
 
